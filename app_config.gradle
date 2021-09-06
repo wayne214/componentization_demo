@@ -1,0 +1,55 @@
+if(idRelease.toBoolean()){
+    if(project.name != 'app') apply plugin: 'com.android.library'
+    else apply plugin: 'com.anroid.application'
+}
+else{
+    if(project.name.matches('module_.+') || project.name == 'app') apply plugin: 'com.android.application'
+    else if(project.name.matches('lib_.+')) apply plugin: 'com.android.library'
+}
+
+android{
+    compileSdk android_versions.sdk_version
+
+    defaultConfig {
+        if(idRelease.toBoolean()){
+            applicationId "com.example.componentdemo"
+        }else{
+            if(project.name.matches('module_.+')|| project.name == 'app'){
+                applicationId appIds[project.name]
+            }
+        }
+
+        minSdk android_versions.min_version
+        targetSdk android_versions.target_version
+        versionCode android_versions.version_code
+        versionName android_versions.version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets{
+        main{
+            if(idRelease.toBoolean()){
+                manifest.srcFile "src/main/AndroidManifest.xml"
+            }else{
+                if(project.name.matches('module_.+')){
+                    manifest.srcFile "src/main/manifest/AndroidManifest.xml"
+                }else if(project.name.matches('lib_.+') || project.name == 'app'){
+                    manifest.srcFile "src/main/AndroidManifest.xml"
+                }
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}

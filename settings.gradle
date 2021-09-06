@@ -1,0 +1,4 @@
+rootProject.name = "ComponentDemo"
+include ':app'
+include ':module_main'
+include ':lib_common'
