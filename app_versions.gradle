@@ -10,6 +10,8 @@ android_versions.min_version = 23
 android_versions.target_version = 30
 android_versions.version_code = 1
 android_versions.version_name = "1.0"
+android_versions.arouter_api = "1.5.2"
+android_versions.arouter_compiler = "1.5.2"
 
 ext.android_versions = android_versions
 
