@@ -20,7 +20,15 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+
+        multiDexEnabled true
 }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+    }
 
     buildTypes {
         release {
@@ -48,4 +56,5 @@ dependencies {
 
     implementation project(':base')
     runtimeOnly project(':login')
+    runtimeOnly project(':share')
 }

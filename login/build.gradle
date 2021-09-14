@@ -1,7 +1,3 @@
-plugins {
-    id 'com.android.application'
-}
-
 if(idRelease.toBoolean()){
     apply plugin: 'com.android.library'
 }else{
