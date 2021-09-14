@@ -2,3 +2,7 @@ rootProject.name = "ComponentDemo"
 include ':app'
 include ':module_main'
 include ':lib_common'
+include ':componentbase'
+include ':base'
+include ':login'
+include ':share'
