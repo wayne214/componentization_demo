@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     public void login(View view) {
 //        System.out.println("login click");
 
-        ARouter.getInstance().build("/login/login").navigation();
+        ARouter.getInstance().build("/account/login").navigation();
     }
 
     public void share(View view) {
