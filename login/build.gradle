@@ -1,7 +1,7 @@
-if(idRelease.toBoolean()){
-    apply plugin: 'com.android.library'
-}else{
+if (isRunAlone.toBoolean()) {
     apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
 }
 
 android {
@@ -9,9 +9,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        if(idRelease.toBoolean()){
-            applicationId "com.example.componentdemo"
-        }else{
+        if(isRunAlone.toBoolean()){
             applicationId 'com.example.login'
         }
         minSdkVersion 23
@@ -28,12 +26,12 @@ android {
         }
     }
 
-    sourceSets{
-        main{
-            if(idRelease.toBoolean()){
-                manifest.srcFile "src/main/AndroidManifest.xml"
-            }else{
-                manifest.srcFile "src/main/manifest/AndroidManifest.xml"
+    sourceSets {
+        main {
+            if (isRunAlone.toBoolean()) {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
             }
         }
     }

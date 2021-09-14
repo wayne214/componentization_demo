@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
-@Route(path = "/account/login")
+@Route(path = "/login/login")
 public class MainActivity extends AppCompatActivity {
     private TextView tvState;
     @Override
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initView();
-        updateLoginState();
+//        updateLoginState();
     }
 
     private void initView() {
@@ -40,6 +40,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateLoginState() {
-        tvState.setText("这里是登录界面：" + (AccountUtils.userInfo == null ? "未登录" : AccountUtils.userInfo.getUserName()));
+        tvState.setText("这里是登录界面：");
     }
 }

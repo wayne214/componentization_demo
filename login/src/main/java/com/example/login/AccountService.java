@@ -21,6 +21,7 @@ public class AccountService implements IAccountServices {
         return AccountUtils.userInfo == null? null : AccountUtils.userInfo.getAccountId();
     }
 
+    @Override
     public Fragment newUserFragment(Activity activity, int containerId, FragmentManager manager, Bundle bundle, String tag){
         FragmentTransaction transaction = manager.beginTransaction();
         Fragment userFragment = new UserFragment();

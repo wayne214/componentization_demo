@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.share_content)).setText(content);
             }
         }
+
+        share();
     }
 
     private void share() {
